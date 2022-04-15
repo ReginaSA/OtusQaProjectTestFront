@@ -10,7 +10,19 @@
     },
     "grade": {
       "type": "string"
+    },
+    "school_name": {
+      "type": "string"
+    },
+    "city": {
+      "type": "string"
     }
   },
-  "required": [ "id",  "name", "grade"]
+  "required": [
+    "id",
+    "name",
+    "grade",
+    "school_name",
+    "city"
+  ]
 }

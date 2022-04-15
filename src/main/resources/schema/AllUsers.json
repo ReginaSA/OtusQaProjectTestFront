@@ -1,0 +1,20 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "array",
+  "properties": {
+    "id": {
+      "type": "integer"
+    },
+    "name": {
+      "type": "string"
+    },
+    "grade": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "id",
+    "name",
+    "grade"
+  ]
+}
