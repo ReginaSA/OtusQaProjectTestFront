@@ -34,7 +34,7 @@ public class RequestUsersDateTest {
      * и проверка ответа json схеме
      */
     @Test
-    public void getUserById() {
+    public void chekUserById() {
         User newUser = User.builder()
                 .id(userId)
                 .build();
