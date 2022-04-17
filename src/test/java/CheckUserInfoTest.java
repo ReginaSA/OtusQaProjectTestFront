@@ -28,7 +28,9 @@ public class CheckUserInfoTest {
     public void goToUserPage() {
 
         new MainPage().open();
-        new UserBlock()
-                .clickRandomUserItem();
+        String urlPage = new UserBlock()
+                .clickRandomUserItem()
+                .getUrlPage();
+        System.out.println(urlPage);
     }
 }
