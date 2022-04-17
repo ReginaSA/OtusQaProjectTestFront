@@ -18,17 +18,7 @@ public class UserApi {
                 .contentType(ContentType.JSON);
     }
 
-    public Response createUser(User user) {
-        return
-                given(spec)
-                        .with()
-                        .body(user)
-                        .log().all()
-                        .when()
-                        .post(USER);
-    }
-
-    public Response getUser(User user) {
+    public Response getUserById(User user) {
         return
                 given(spec)
                         .log().all()

@@ -6,8 +6,8 @@ import io.restassured.specification.RequestSpecification;
 import org.junit.*;
 import service.UserApi;
 
-import static qa.stub.helpers.Helpers.buildRequest;
-import static qa.stub.helpers.Helpers.executeGetRequest;
+import static helpers.Helpers.buildRequest;
+import static helpers.Helpers.executeGetRequest;
 
 public class RequestUsersDateTest {
 
@@ -40,7 +40,7 @@ public class RequestUsersDateTest {
                 .build();
 
         UserApi userApi = new UserApi();
-        userApi.getUser(newUser)
+        userApi.getUserById(newUser)
                 .then()
                 .log().all()
                 .statusCode(200)

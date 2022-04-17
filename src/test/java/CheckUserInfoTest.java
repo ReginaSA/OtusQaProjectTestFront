@@ -1,16 +1,14 @@
-import com.codeborne.selenide.Condition;
-import com.codeborne.selenide.Selenide;
 
+import components.UserBlock;
 import org.junit.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.openqa.selenium.By;
-import pages.BasePage;
 import pages.MainPage;
-
-import static com.codeborne.selenide.Configuration.baseUrl;
+import utils.extensions.UIExtension;
 import static com.codeborne.selenide.Selenide.*;
 import static com.codeborne.selenide.WebDriverConditions.url;
-import static com.codeborne.selenide.WebDriverRunner.currentFrameUrl;
 
+@ExtendWith(UIExtension.class)
 public class CheckUserInfoTest {
 
     String userId = "68";
@@ -19,10 +17,18 @@ public class CheckUserInfoTest {
      * Поиск пльзователя по id и переход на его страницу
      */
     @Test
-    public void chekUserById() {
+    public void chekUserById() throws InterruptedException {
 
         new MainPage().open();
-        $(By.xpath("//div[contains(@class, 'MuiPaper-root')]/a[contains(@href,'"+ userId + "')]")).click();
+        $(By.xpath("//div[contains(@class, 'MuiPaper-root')]/a[contains(@href,'"+ userId + "')]")).scrollIntoView(true).click();
         webdriver().shouldHave(url( "http://localhost:3000/" + userId));
+    }
+
+    @Test
+    public void goToUserPage() {
+
+        new MainPage().open();
+        new UserBlock()
+                .clickRandomUserItem();
     }
 }
