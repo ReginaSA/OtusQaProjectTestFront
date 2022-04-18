@@ -1,5 +1,8 @@
 
+import com.codeborne.selenide.Selenide;
+import com.codeborne.selenide.WebDriverRunner;
 import components.UserBlock;
+import org.junit.Assert;
 import org.junit.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.openqa.selenium.By;
@@ -31,6 +34,7 @@ public class CheckUserInfoTest {
         String urlPage = new UserBlock()
                 .clickRandomUserItem()
                 .getUrlPage();
-        System.out.println(urlPage);
+        urlPage.contains(userId);
+        Assert.assertEquals(urlPage, userId);
     }
 }

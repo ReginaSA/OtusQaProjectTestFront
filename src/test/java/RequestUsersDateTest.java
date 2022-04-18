@@ -6,6 +6,7 @@ import io.restassured.specification.RequestSpecification;
 import org.junit.*;
 import service.UserApi;
 
+import static com.codeborne.selenide.Configuration.baseUrl;
 import static helpers.Helpers.buildRequest;
 import static helpers.Helpers.executeGetRequest;
 
@@ -19,8 +20,8 @@ public class RequestUsersDateTest {
      */
     @Test
     public void getAllUsers(){
-        String url = "http://localhost:8080/users/get/all";
-        RequestSpecification request = buildRequest() ;
+        String url = baseUrl + "/users/get/all";
+        RequestSpecification request = buildRequest();
         Response response =
                 executeGetRequest(request, url);
         response.then()

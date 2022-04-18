@@ -11,9 +11,6 @@ public class Helpers {
 
     /**
      * Метод для формирования заголовка и тела запроса
-     *
-     * @param msgBody тело сообщения в виде строки
-     * @return получившийся запрос
      */
     public static RequestSpecification buildRequest(String msgBody) {
         RequestSpecification request = RestAssured
@@ -25,8 +22,6 @@ public class Helpers {
 
     /**
      * Метод для формирования заголовка и тела запроса
-     *
-     * @return получившийся запрос
      */
     public static RequestSpecification buildRequest() {
         RequestSpecification request = RestAssured
@@ -37,10 +32,6 @@ public class Helpers {
 
     /**
      * Метод для выполнения GET запроса
-     *
-     * @param request  объект типа RequestSpecification с сформированным запросом
-     * @param resource ресурс API, к которому выполняем запрос
-     * @return ответ типа Response от сервера
      */
     public static Response executeGetRequest(RequestSpecification request, String resource) {
         return request
@@ -48,6 +39,4 @@ public class Helpers {
                 .get(resource)
                 .then().log().all().extract().response();
     }
-
-
 }
