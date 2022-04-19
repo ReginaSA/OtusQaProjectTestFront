@@ -1,5 +1,6 @@
 
 import entities.User;
+import io.qameta.allure.Description;
 import io.restassured.module.jsv.JsonSchemaValidator;
 import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
@@ -19,7 +20,8 @@ public class RequestUsersDateTest {
      * и проверяет на соответствие данных ответа json схеме
      */
     @Test
-    public void getAllUsers(){
+    @Description("Запрашиваем массив объектов /users/get/all и проверяеем на соответствие данных ответа json схеме")
+    public void getAllUsersCheckJsonSchema(){
         String url = baseUrl + "/users/get/all";
         RequestSpecification request = buildRequest();
         Response response =
@@ -30,12 +32,9 @@ public class RequestUsersDateTest {
                 .body(JsonSchemaValidator.matchesJsonSchemaInClasspath("schema/AllUsers.json"));
     }
 
-    /**
-     * Тест получения опльзователя по id
-     * и проверка ответа json схеме
-     */
     @Test
-    public void chekUserById() {
+    @Description("Получаем пользователя по id и проверяеем на соответствие данных ответа json схеме")
+    public void getUserById() {
         User newUser = User.builder()
                 .id(userId)
                 .build();
