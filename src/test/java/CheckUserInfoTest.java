@@ -1,17 +1,12 @@
-
-import com.codeborne.selenide.Selenide;
-import com.codeborne.selenide.WebDriverRunner;
 import components.UserBlock;
-import org.junit.Assert;
 import org.junit.Test;
-import org.junit.jupiter.api.extension.ExtendWith;
+import org.junit.runner.notification.RunListener;
 import org.openqa.selenium.By;
 import pages.MainPage;
-import utils.extensions.UIExtension;
 import static com.codeborne.selenide.Selenide.*;
 import static com.codeborne.selenide.WebDriverConditions.url;
 
-@ExtendWith(UIExtension.class)
+
 public class CheckUserInfoTest {
 
     String userId = "68";
@@ -35,6 +30,5 @@ public class CheckUserInfoTest {
                 .clickRandomUserItem()
                 .getUrlPage();
         urlPage.contains(userId);
-        Assert.assertEquals(urlPage, userId);
     }
 }

@@ -2,6 +2,7 @@ package pages;
 
 import annotations.UrlPath;
 import com.codeborne.selenide.Selenide;
+import io.qameta.allure.Step;
 
 public abstract class BasePage<T>{
 
@@ -16,6 +17,7 @@ public abstract class BasePage<T>{
         return "";
     }
 
+    @Step
     public T open() {
         Selenide.open(baseUrl + getUrlPath());
 
